@@ -1,0 +1,39 @@
+<html>
+<head>
+<title>Admin Order Email Template</title>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+</head>
+<body style="margin: 0 !important; padding: 0 !important;">
+<div style="padding: 5px 0 0 0; font-size: 16px; line-height: 25px; font-family: Helvetica, Arial, sans-serif; color: #666666;">
+    <p>Hello Admin, </p>
+    <p>{{customerName}} has placed a new order <span style="color: black;">#{{orderNo}}</span> 
+        for the store <span style="color: black;">{{storeName}}</span></p>
+        <p>Total amount: <span style="color: black;">${{total}}</span></p>
+            <p>Pick-up: <span style="color: black;">{{pickDate}}</span> at <span style="color: black;">{{pickTime}}</span></p>
+            <p>Order details:</p>
+</div>
+<table border="0" width="70%" style="max-width: 500px; font-size: 15px;">
+    <tr>
+        <th>Item</th>
+        <th>Quantity</th>
+        <th>Price</th>
+    </tr>
+    {{{orderItems}}}
+    <tr>
+        <td align="center" style="padding: 2px 0 0 0; border-top: 1px solid #eaeaea; border-bottom: 1px dashed #aaaaaa;">Total
+        </td>
+        <td align="center" style="padding: 2px 0 0 0; border-top: 1px solid #eaeaea; border-bottom: 1px dashed #aaaaaa;"> 
+        </td>
+        <td align="center" style="padding: 2px 0 0 0; border-top: 1px solid #eaeaea; border-bottom: 1px dashed #aaaaaa;"><b>${{total}}</b>
+        </td>
+    </tr>
+</table>
+<div style="padding: 5px 0 0 0; font-size: 16px; line-height: 25px; font-family: Helvetica, Arial, sans-serif; color: #666666;">
+    Customer will pick-up the order on <span style="color: black;">{{pickDate}}</span> at <span style="font-size: 18px; color: black;">{{pickTime}}</span> UTC.
+</div>
+</body>
+</html>
