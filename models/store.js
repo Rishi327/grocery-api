@@ -15,6 +15,7 @@ const StoreSchema = new Schema({
     address: { type: String, required: true },
     phone: { type: String, required: true },
     email: { type: String, required: true },
+    tax: { type: Number, required: true },
     image: String,
     inventory: [{ type: Schema.Types.ObjectId, ref: 'Item' }]
 }, { timestamps: true });

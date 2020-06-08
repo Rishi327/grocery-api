@@ -96,6 +96,7 @@ exports.createStore = async (req, res) => {
             address: reqBody.address,
             phone: reqBody.phone,
             email: reqBody.email,
+	    tax: reqBody.tax,
             inventory: []
         }
         if(reqBody.image) store.image = reqBody.image
@@ -128,6 +129,7 @@ exports.editStore = async (req, res) => {
             address: reqBody.address ? reqBody.address : store.address,
             phone: reqBody.phone ? reqBody.phone : store.phone,
             email: reqBody.email ? reqBody.email : store.email,
+	    tax: reqBody.tax ? reqBody.tax : store.tax,
             image: reqBody.image ? reqBody.image : store.image
         }
         await Store.findByIdAndUpdate(store._id, storeObj)
