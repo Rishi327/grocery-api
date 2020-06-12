@@ -13,6 +13,7 @@ const utils = require('../lib/utils');
 const saltRounds = Number(process.env.SALT_ROUNDS) || 10;
 const jwtSecret = process.env.JWT_SECRET || 'top_secret';
 
+// create New Admin	
 exports.createUser = async (req, res) => {
     const reqBody = req.body
     try {
@@ -31,6 +32,7 @@ exports.createUser = async (req, res) => {
             })
         }
         
+	// hash password
         const hashedPassword = await bcrypt.hash(reqBody.password, saltRounds)
         const user = {
             email: reqBody.email.toLowerCase(),
@@ -38,6 +40,7 @@ exports.createUser = async (req, res) => {
             firstName: reqBody.firstName,
             lastName: reqBody.lastName
         }
+	// new Admin collection
         const newUser = await Admin.create(user)
         return res.json({
             data: newUser._id,

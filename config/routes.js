@@ -30,7 +30,7 @@ module.exports = function(app, passport) {
   app.post(`${webRoute}${storePath}/requests`, shopper.requestNewItem);
   
   // Admin APIs
-  app.post(`${adminRoute}/create`, admin.createUser);
+  app.post(`${adminRoute}/create`, admin.createUser); // create Admin
   app.post(`${adminRoute}/login`, passport.authenticate('localAdmin', {session: false, failureMessage: true}), admin.getLoginToken);
   app.get(`${adminRoute}/stores`, jwtAuth, shopper.listAllStores);
   app.post(`${adminRoute}/stores`, jwtAuth, admin.createStore);
