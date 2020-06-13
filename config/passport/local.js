@@ -17,7 +17,7 @@ module.exports = {
       usernameField: 'email',
       passwordField: 'password'
     },
-    async (email, password, done) => {
+    async (email, password, done) => { 
       try {
         email = email.toLowerCase()
         const user = await Admin.findOne({ email })

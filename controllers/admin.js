@@ -15,6 +15,10 @@ const jwtSecret = process.env.JWT_SECRET || 'top_secret';
 
 // create New Admin	
 exports.createUser = async (req, res) => {
+
+
+    console.log('**************************************')
+    console.log(Admin)
     const reqBody = req.body
     try {
         if(!reqBody.email || !reqBody.password){

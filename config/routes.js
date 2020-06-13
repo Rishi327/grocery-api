@@ -9,13 +9,15 @@ const logger = require('../lib/logger');
 
 const [webRoute, adminRoute, storePath] = ['/web', '/admin', '/stores/:storeId'];
 
+
 /**
  * Expose
  */
 module.exports = function(app, passport) {
-
+  
+   
   const jwtAuth = passport.authenticate('jwt');
-
+  
   // Server status check Route
   app.get('/', (req, res) => {
     return res.send('Server Running')
