@@ -12,6 +12,7 @@ const Schema = mongoose.Schema;
 
 const ItemSchema = new Schema({
     itemName: { type: String, required: true },
+    category: {type: String },
     price: { type: Number, required: true },
     image: { type: String, default: '' },
     description: String,

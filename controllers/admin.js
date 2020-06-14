@@ -15,10 +15,6 @@ const jwtSecret = process.env.JWT_SECRET || 'top_secret';
 
 // create New Admin	
 exports.createUser = async (req, res) => {
-
-
-    console.log('**************************************')
-    console.log(Admin)
     const reqBody = req.body
     try {
         if(!reqBody.email || !reqBody.password){
@@ -179,6 +175,8 @@ exports.deleteStore = async (req, res) => {
  * API to Create a new Item in Inventory
  */
 exports.createItem = async (req, res) => {
+    console.log('*****************************')
+    console.log(req.body)
     const reqBody = req.body
     const storeId = req.params.storeId
     try {
@@ -201,6 +199,7 @@ exports.createItem = async (req, res) => {
             storeId: store._id
         }
         if(reqBody.description) item.description = reqBody.description
+        if(reqBody.category) item.category = reqBody.category
         if(reqBody.quantity) {
             let quantity = parseInt(reqBody.quantity)
             if (isNaN(quantity)) return res.status(400).json({
@@ -227,6 +226,8 @@ exports.createItem = async (req, res) => {
  * API to Edit an Item
  */
 exports.editItem = async (req, res) => {
+    console.log('***********************')
+    console.log(req.body)
     const reqBody = req.body
     const storeId = req.params.storeId
     const itemId = req.params.itemId
