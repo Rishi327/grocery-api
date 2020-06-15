@@ -36,7 +36,7 @@ exports.getStoreDetails = async (req, res) => {
     const storeId = req.params.storeId
     try {
         const store = storeId.match(/^[0-9a-fA-F]{24}$/) 
-        ? await Store.findById(storeId).populate('inventory', 'itemName price stock description image') 
+        ? await Store.findById(storeId).populate('inventory', 'itemName price stock description image category') 
         : undefined
         if (!store) return res.status(400).json({
             error: 'INVALID_STORE',

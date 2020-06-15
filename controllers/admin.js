@@ -175,7 +175,7 @@ exports.deleteStore = async (req, res) => {
  * API to Create a new Item in Inventory
  */
 exports.createItem = async (req, res) => {
-    console.log('*****************************')
+    console.log('**********Creating item*******************')
     console.log(req.body)
     const reqBody = req.body
     const storeId = req.params.storeId
@@ -226,7 +226,7 @@ exports.createItem = async (req, res) => {
  * API to Edit an Item
  */
 exports.editItem = async (req, res) => {
-    console.log('***********************')
+    console.log('**********Updating item*************')
     console.log(req.body)
     const reqBody = req.body
     const storeId = req.params.storeId
@@ -248,6 +248,7 @@ exports.editItem = async (req, res) => {
             itemName: reqBody.name ? reqBody.name : item.itemName,
             price: reqBody.price ? Number(reqBody.price) : item.price,
             image: reqBody.image ? reqBody.image : item.image,
+            category: reqBody.category ? reqBody.category : item.category,
             description: reqBody.description ? reqBody.description : item.description,
             stock: reqBody.quantity ? Number(reqBody.quantity) : item.stock
         }
