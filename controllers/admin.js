@@ -175,8 +175,6 @@ exports.deleteStore = async (req, res) => {
  * API to Create a new Item in Inventory
  */
 exports.createItem = async (req, res) => {
-    console.log('**********Creating item*******************')
-    console.log(req.body)
     const reqBody = req.body
     const storeId = req.params.storeId
     try {
@@ -226,8 +224,7 @@ exports.createItem = async (req, res) => {
  * API to Edit an Item
  */
 exports.editItem = async (req, res) => {
-    console.log('**********Updating item*************')
-    console.log(req.body)
+  
     const reqBody = req.body
     const storeId = req.params.storeId
     const itemId = req.params.itemId
